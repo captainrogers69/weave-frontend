@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Weave Privacy Policy</title>
+<meta name="description" content="How Weave handles your data: local first, no ads, no tracking.">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --text: #1a1a1a;
+    --muted: #5c5c5c;
+    --line: #e6e3dc;
+    --accent: #f5c84c;
+    --card: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #141414;
+      --text: #ededed;
+      --muted: #a3a3a3;
+      --line: #2a2a2a;
+      --card: #1b1b1b;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  main { max-width: 720px; margin: 0 auto; padding: 48px 16px 80px; }
+  header { display: flex; align-items: center; gap: 12px; margin-bottom: 32px; }
+  header svg { width: 40px; height: 40px; flex: none; }
+  header a { color: inherit; text-decoration: none; font-weight: 600; font-size: 18px; }
+  h1 { font-size: 32px; line-height: 1.2; margin: 0 0 8px; }
+  h2 { font-size: 20px; margin: 40px 0 8px; }
+  p, li { color: var(--text); }
+  .muted { color: var(--muted); }
+  ul { padding-left: 20px; }
+  li { margin: 4px 0; }
+  .summary {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--accent);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin: 24px 0;
+  }
+  .summary p { margin: 0 0 8px; font-weight: 600; }
+  .summary ul { margin: 0; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 15px; }
+  th, td { text-align: left; vertical-align: top; padding: 10px 8px; border-bottom: 1px solid var(--line); }
+  th { font-weight: 600; }
+  a { color: inherit; text-underline-offset: 3px; }
+  footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 14px; }
+  @media (max-width: 520px) {
+    table, thead, tbody, tr, th, td { display: block; }
+    thead { display: none; }
+    tr { border-bottom: 1px solid var(--line); padding: 8px 0; }
+    td { border: 0; padding: 2px 0; }
+    td:first-child { font-weight: 600; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <svg viewBox="0 0 256 256" aria-hidden="true"><rect width="256" height="256" rx="57" fill="#F5C84C"/><path d="M128 0H199A57 57 0 0 1 256 57V128A128 128 0 0 1 128 0Z" fill="#141414"/></svg>
+    <a href="/">Weave</a>
+  </header>
+
+  <h1>Privacy Policy</h1>
+  <p class="muted">Effective 12 November 2026</p>
+
+  <p>Weave is a lists and tasks app for iPhone, Android, Mac and Windows, made by Mayank Mobile Dev ("we"). This policy explains what data Weave handles and why.</p>
+
+  <div class="summary">
+    <p>In short</p>
+    <ul>
+      <li>Without an account, everything stays on your device. We receive nothing.</li>
+      <li>With an account, your lists and tasks are stored on our server so your devices can sync.</li>
+      <li>No ads, no analytics, no tracking, and we never sell your data.</li>
+      <li>You can delete your account and all its data from the app at any time.</li>
+    </ul>
+  </div>
+
+  <h2>Using Weave without an account</h2>
+  <p>Weave works fully offline. Your lists, tasks, due dates and reminders are saved only in the app's storage on your device. Reminders are scheduled by your device's own notification system. Nothing is sent to us.</p>
+
+  <h2>Using Weave with an account</h2>
+  <p>Signing in is optional and turns on sync between your devices. When you sign in, we store:</p>
+  <table>
+    <thead><tr><th>Data</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>Your email address and password</td><td>To create your account and sign you in. Passwords are stored hashed by our authentication provider, never in plain text.</td></tr>
+      <tr><td>Your lists and tasks (names, text, due dates, reminders, repeat settings and order)</td><td>To sync them to your other signed-in devices.</td></tr>
+      <tr><td>Each signed-in device's name, type (for example iPhone or Windows) and when it last synced</td><td>To show your devices in Settings and label edits made on different devices.</td></tr>
+    </tbody>
+  </table>
+  <p>This data is used only to provide sync. It is not used for advertising, profiling or any other purpose, and it is not shared with anyone except the service providers below.</p>
+
+  <h2>Service providers</h2>
+  <ul>
+    <li><strong>Supabase</strong> hosts the account and sync service (database and authentication). It processes the data above on our behalf. See the <a href="https://supabase.com/privacy">Supabase privacy policy</a>.</li>
+    <li><strong>App stores.</strong> When you download Weave, Apple, Google or Microsoft may collect data under their own privacy policies. We don't control that data.</li>
+  </ul>
+
+  <h2>What we don't collect</h2>
+  <ul>
+    <li>No analytics, usage tracking or advertising identifiers.</li>
+    <li>No crash reporting services.</li>
+    <li>No location, contacts, photos, camera or microphone access.</li>
+  </ul>
+
+  <h2>Security</h2>
+  <p>Data travels between the app and our server over encrypted connections (HTTPS). On the server, each account can read only its own data. We plan to add end-to-end encryption in a future version, and will update this policy when we do.</p>
+
+  <h2>Keeping and deleting your data</h2>
+  <ul>
+    <li>We keep your account data while your account exists.</li>
+    <li><strong>Delete your account</strong> in the app: Settings → Delete account. This removes your account, your synced lists and tasks, and your device list from our server.</li>
+    <li><strong>Sign out</strong> to remove your synced data from a device. Your account stays on the server.</li>
+    <li>Data that exists only on your device is removed when you uninstall the app.</li>
+    <li>You can also email us to ask for a copy of your data or for its deletion.</li>
+  </ul>
+
+  <h2>Children</h2>
+  <p>Weave is not directed at children under 13, and we don't knowingly collect personal data from them. If you believe a child has created an account, contact us and we will delete it.</p>
+
+  <h2>Your rights</h2>
+  <p>Depending on where you live, you may have the right to access, correct, export or delete your personal data, or to object to how it is processed. Email us and we will respond within 30 days.</p>
+
+  <h2>Changes to this policy</h2>
+  <p>If we change this policy, we will update it on this page and change the effective date above. For significant changes, we will also tell you in the app.</p>
+
+  <h2>Contact</h2>
+  <p>Mayank Mobile Dev<br>
+  Email: <a href="mailto:mobiledev.mayank@gmail.com">mobiledev.mayank@gmail.com</a></p>
+
+  <footer class="muted">© 2026 Mayank Mobile Dev</footer>
+</main>
+</body>
+</html>

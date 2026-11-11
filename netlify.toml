@@ -1,0 +1,4 @@
+# Static site, no build step: Netlify serves this folder as is.
+# /privacy and /privacy/ both serve privacy/index.html.
+[build]
+  publish = "."
