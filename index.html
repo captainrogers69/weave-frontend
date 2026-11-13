@@ -9,7 +9,7 @@
 <meta property="og:title" content="Weave: Remember less. Do more.">
 <meta property="og:description" content="A to-do list that works offline, rings on time and syncs your phone, Mac and PC.">
 <meta property="og:type" content="website">
-<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="preload" href="fonts/Geist-Medium.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="preload" href="fonts/Geist-Regular.ttf" as="font" type="font/ttf" crossorigin>
 <script>document.documentElement.classList.add('js')</script>
@@ -263,9 +263,11 @@ html:not(.js) .run-ctl { display: none; }
 .get .mid { position: relative; z-index: 1; padding: clamp(150px, 26svh, 280px) 0; }
 .get .mid { display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 48px 0; }
 .choice { display: flex; align-items: center; gap: 28px; }
+.choice .grp { display: flex; gap: 12px; }
 .choice .or { color: var(--soft-on-ink); font-size: var(--s5); }
-.choice .btn { min-height: 60px; padding: 0 32px; }
-.get .mid p { color: var(--soft-on-ink); font-size: var(--s5); max-width: 44ch; }
+.choice .btn { min-height: 60px; padding: 0 32px; min-width: 150px; }
+.get .mid p { color: var(--soft-on-ink); font-size: var(--s5); max-width: 46ch; }
+.get .mid p a { color: var(--paper); }
 
 /* ---------- Footer ---------- */
 .foot { background: var(--yellow); color: var(--ink); overflow: hidden; padding: var(--gap) var(--m) 0; display: flex; flex-direction: column; }
@@ -315,6 +317,7 @@ html:not(.js) .run-ctl { display: none; }
   .ex:hover { transform: none; }
   .get h2 { font-size: 17vw; }
   .choice { flex-direction: column; gap: 10px; width: 100%; }
+  .choice .grp { flex-direction: column; gap: 10px; width: 100%; }
   .choice .btn { width: 100%; }
   .legal { flex-direction: column; gap: 4px; }
   .giant { font-size: 36vw; }
@@ -327,6 +330,18 @@ html:not(.js) .run-ctl { display: none; }
   .js .hero .slot::after { transform: none; }
 }
 </style>
+<script>
+/* Opened from disk (file://), folders don't open their index.html, so point folder links at it. No effect on the live site. */
+if (location.protocol === 'file:') addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('a[href]').forEach((a) => {
+    const h = a.getAttribute('href');
+    if (/^(https?:|mailto:|#)/.test(h)) return;
+    const [path, hash] = h.split('#');
+    if (path === '' || !path.endsWith('/')) return;
+    a.setAttribute('href', path + 'index.html' + (hash !== undefined ? '#' + hash : ''));
+  });
+});
+</script>
 </head>
 <body>
 
@@ -339,7 +354,7 @@ html:not(.js) .run-ctl { display: none; }
     <a href="#try">Try it</a>
     <a href="#does">What it does</a>
     <a href="#screens">Screens</a>
-    <a href="/privacy/">Privacy</a>
+    <a href="privacy/">Privacy</a>
   </nav>
   <a class="btn" href="#get">Join the beta</a>
 </header>
@@ -468,7 +483,7 @@ html:not(.js) .run-ctl { display: none; }
     </ul>
     <div data-rise style="--i:2">
       <p class="statement"><svg class="cap" viewBox="0 0 256 256" aria-hidden="true"><rect width="256" height="256" rx="57" fill="#F5C84C"/><path d="M128 0H199A57 57 0 0 1 256 57V128A128 128 0 0 1 128 0Z" fill="#141414"/></svg>Weave keeps your lists on your device first, and works without an account. Sign in with your email only if you want sync. There are no ads, no analytics and no tracking.</p>
-      <p class="statement">To sync, we store your email, your changes and the names of your devices. It isn’t end-to-end encrypted, and you can delete it all from Settings. The <a class="link" href="/privacy/">privacy policy</a> has the details.</p>
+      <p class="statement">To sync, we store your email, your changes and the names of your devices. It isn’t end-to-end encrypted, and you can delete it all from Settings. The <a class="link" href="privacy/">privacy policy</a> has the details.</p>
     </div>
   </section>
 
@@ -476,11 +491,16 @@ html:not(.js) .run-ctl { display: none; }
     <h2 id="get-h"><span data-rise>Phone or</span> <span data-rise style="--i:2">computer?</span></h2>
     <div class="mid" data-rise style="--i:1">
       <div class="choice">
-        <a class="btn btn-yellow" href="mailto:mobiledev.mayank@gmail.com?subject=Weave%20beta%3A%20iPhone%20or%20Android&amp;body=Hi%2C%20I%E2%80%99d%20like%20to%20try%20Weave.%0A%0AMy%20phone%20(iPhone%20or%20Android)%3A%20">iPhone or Android</a>
+        <div class="grp">
+          <a class="btn btn-yellow" href="https://testflight.apple.com/join/XKDmnzjf" target="_blank" rel="noopener">iPhone</a>
+          <a class="btn btn-yellow" href="https://play.google.com/store/apps/details?id=com.mobilemayank.weave" target="_blank" rel="noopener">Android</a>
+        </div>
         <span class="or" aria-hidden="true">or</span>
-        <a class="btn btn-yellow" href="mailto:mobiledev.mayank@gmail.com?subject=Weave%20beta%3A%20Mac%20or%20Windows&amp;body=Hi%2C%20I%E2%80%99d%20like%20to%20try%20Weave.%0A%0AMy%20computer%20(Mac%20or%20Windows)%3A%20">Mac or Windows</a>
+        <div class="grp">
+          <a class="btn btn-yellow" href="https://testflight.apple.com/join/XKDmnzjf" target="_blank" rel="noopener">Mac</a>
+        </div>
       </div>
-      <p>Weave is in beta. Email us and we’ll reply with a test invite for that device.</p>
+      <p>Weave is in beta. iPhone and Mac open TestFlight, Android opens Google Play. On Windows? <a class="link" href="mailto:mobiledev.mayank@gmail.com?subject=Weave%20for%20Windows">Email us</a> and we’ll tell you when it’s ready.</p>
     </div>
   </section>
 </main>
@@ -492,8 +512,8 @@ html:not(.js) .run-ctl { display: none; }
       <a class="btn btn-ink" href="#get" data-rise style="--i:1">Join the beta</a>
     </div>
     <ul class="foot-links" data-rise style="--i:2">
-      <li><a class="link" href="/privacy/">Privacy policy</a></li>
-      <li><a class="link" href="/privacy/#delete-account">Delete your account</a></li>
+      <li><a class="link" href="privacy/">Privacy policy</a></li>
+      <li><a class="link" href="privacy/#delete-account">Delete your account</a></li>
       <li><a class="link" href="mailto:mobiledev.mayank@gmail.com?subject=Weave%20support">Support</a></li>
     </ul>
   </div>

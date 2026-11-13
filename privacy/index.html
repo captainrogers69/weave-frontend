@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Weave Privacy Policy</title>
 <meta name="description" content="How Weave handles your data: local first, no ads, no tracking.">
-<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
 <style>
   :root {
     --bg: #fbfaf7;
@@ -64,12 +64,24 @@
     td:first-child { font-weight: 600; }
   }
 </style>
+<script>
+/* Opened from disk (file://), folders don't open their index.html, so point folder links at it. No effect on the live site. */
+if (location.protocol === 'file:') addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('a[href]').forEach((a) => {
+    const h = a.getAttribute('href');
+    if (/^(https?:|mailto:|#)/.test(h)) return;
+    const [path, hash] = h.split('#');
+    if (path === '' || !path.endsWith('/')) return;
+    a.setAttribute('href', path + 'index.html' + (hash !== undefined ? '#' + hash : ''));
+  });
+});
+</script>
 </head>
 <body>
 <main>
   <header>
     <svg viewBox="0 0 256 256" aria-hidden="true"><rect width="256" height="256" rx="57" fill="#F5C84C"/><path d="M128 0H199A57 57 0 0 1 256 57V128A128 128 0 0 1 128 0Z" fill="#141414"/></svg>
-    <a href="/">Weave</a>
+    <a href="../">Weave</a>
   </header>
 
   <h1>Privacy Policy</h1>
