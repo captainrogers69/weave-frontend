@@ -6,62 +6,74 @@
 <title>Weave Privacy Policy</title>
 <meta name="description" content="How Weave handles your data: local first, no ads, no tracking.">
 <link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="preload" href="../fonts/Geist-Regular.ttf" as="font" type="font/ttf" crossorigin>
 <style>
+  @font-face { font-family: "Geist"; src: url("../fonts/Geist-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+  @font-face { font-family: "Geist"; src: url("../fonts/Geist-Medium.ttf") format("truetype"); font-weight: 500; font-display: swap; }
   :root {
-    --bg: #fbfaf7;
-    --text: #1a1a1a;
-    --muted: #5c5c5c;
-    --line: #e6e3dc;
-    --accent: #f5c84c;
-    --card: #ffffff;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #141414;
-      --text: #ededed;
-      --muted: #a3a3a3;
-      --line: #2a2a2a;
-      --card: #1b1b1b;
-    }
+    --yellow: #F5C84C;
+    --ink: #141414;
+    --paper: #F1F1EF;
+    --white: #FFFFFF;
+    --soft: #55554F;
+    --line: #DCDAD3;
+    --m: clamp(16px, 3vw, 44px);
   }
   * { box-sizing: border-box; }
+  html { color-scheme: light; }
   body {
     margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font: 400 17px/1.6 "Geist", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
-  main { max-width: 720px; margin: 0 auto; padding: 48px 16px 80px; }
-  header { display: flex; align-items: center; gap: 12px; margin-bottom: 32px; }
-  header svg { width: 40px; height: 40px; flex: none; }
-  header a { color: inherit; text-decoration: none; font-weight: 600; font-size: 18px; }
-  h1 { font-size: 32px; line-height: 1.2; margin: 0 0 8px; }
-  h2 { font-size: 20px; margin: 40px 0 8px; }
-  p, li { color: var(--text); }
-  .muted { color: var(--muted); }
+  ::selection { background: var(--yellow); color: var(--ink); }
+  :focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; border-radius: 4px; }
+
+  .bar { display: flex; align-items: center; height: 64px; padding: 0 var(--m); background: var(--ink); color: var(--paper); }
+  .brand { display: flex; align-items: center; gap: 10px; color: inherit; text-decoration: none; font-weight: 500; font-size: 18px; letter-spacing: -.02em; margin-right: auto; }
+  .brand svg { width: 30px; height: 30px; flex: none; }
+  .bar .back { color: inherit; font-size: 15px; text-decoration: none; }
+  .bar .back:hover { text-decoration: underline; text-underline-offset: 4px; }
+  .bar :focus-visible { outline-color: var(--yellow); }
+
+  main { max-width: 720px; margin: 0 auto; padding: 56px 16px 96px; }
+  h1, h2 { font-weight: 500; letter-spacing: -.03em; }
+  h1 { font-size: clamp(36px, 7vw, 56px); line-height: 1.05; margin: 0 0 12px; }
+  h2 { font-size: 22px; line-height: 1.25; margin: 48px 0 8px; scroll-margin-top: 16px; }
+  .muted { color: var(--soft); }
+  .date { display: inline-block; background: var(--yellow); color: var(--ink); border-radius: 6px; padding: 0 8px; font-size: 15px; font-weight: 500; margin: 0; }
   ul { padding-left: 20px; }
   li { margin: 4px 0; }
+  a { color: inherit; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+  a:hover { text-decoration-color: var(--yellow); }
   .summary {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-left: 4px solid var(--accent);
-    border-radius: 12px;
-    padding: 16px 20px;
-    margin: 24px 0;
+    background: var(--white);
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin: 32px 0;
+    position: relative;
+    overflow: hidden;
   }
-  .summary p { margin: 0 0 8px; font-weight: 600; }
+  .summary::after { content: ""; position: absolute; top: 0; right: 0; width: 28px; height: 28px; background: var(--ink); border-bottom-left-radius: 28px; }
+  .summary p { margin: 0 0 8px; font-weight: 500; }
   .summary ul { margin: 0; }
-  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 15px; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 16px; }
   th, td { text-align: left; vertical-align: top; padding: 10px 8px; border-bottom: 1px solid var(--line); }
-  th { font-weight: 600; }
-  a { color: inherit; text-underline-offset: 3px; }
-  footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 14px; }
+  th { font-weight: 500; }
+
+  .foot { background: var(--yellow); color: var(--ink); padding: 40px var(--m); }
+  .foot-in { max-width: 720px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; font-size: 15px; }
+  .foot ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 24px; font-weight: 500; }
+  .foot li { margin: 0; }
+
   @media (max-width: 520px) {
     table, thead, tbody, tr, th, td { display: block; }
     thead { display: none; }
     tr { border-bottom: 1px solid var(--line); padding: 8px 0; }
     td { border: 0; padding: 2px 0; }
-    td:first-child { font-weight: 600; }
+    td:first-child { font-weight: 500; }
   }
 </style>
 <script>
@@ -78,21 +90,24 @@ if (location.protocol === 'file:') addEventListener('DOMContentLoaded', () => {
 </script>
 </head>
 <body>
-<main>
-  <header>
+<header class="bar">
+  <a class="brand" href="../">
     <svg viewBox="0 0 256 256" aria-hidden="true"><rect width="256" height="256" rx="57" fill="#F5C84C"/><path d="M128 0H199A57 57 0 0 1 256 57V128A128 128 0 0 1 128 0Z" fill="#141414"/></svg>
-    <a href="../">Weave</a>
-  </header>
+    Weave
+  </a>
+  <a class="back" href="../">Back to Weave</a>
+</header>
+<main>
 
   <h1>Privacy Policy</h1>
-  <p class="muted">Effective 13 November 2026</p>
+  <p class="date">Effective 17 November 2026</p>
 
   <p>Weave is a lists and tasks app for iPhone, Android, Mac and Windows, made by Mayank Mobile Dev ("we"). This policy explains what data Weave handles and why.</p>
 
   <div class="summary">
     <p>In short</p>
     <ul>
-      <li>Without an account, everything stays on your device. We receive nothing.</li>
+      <li>Without an account, your lists and tasks stay on your device. If the app runs into an error, it sends us a crash report (never your tasks, lists or email); you can turn this off in Settings.</li>
       <li>With an account, your lists and tasks are stored on our server so your devices can sync.</li>
       <li>No ads, no analytics, no tracking, and we never sell your data.</li>
       <li>You can delete your account and all its data from the app at any time.</li>
@@ -100,7 +115,7 @@ if (location.protocol === 'file:') addEventListener('DOMContentLoaded', () => {
   </div>
 
   <h2>Using Weave without an account</h2>
-  <p>Weave works fully offline. Your lists, tasks, due dates and reminders are saved only in the app's storage on your device. Reminders are scheduled by your device's own notification system. Nothing is sent to us.</p>
+  <p>Weave works fully offline. Your lists, tasks, due dates and reminders are saved only in the app's storage on your device. Reminders are scheduled by your device's own notification system. Your lists and tasks are never sent to us. The only thing that can leave your device is a crash report (see <a href="#crash-reports">Crash reports</a> below).</p>
 
   <h2>Using Weave with an account</h2>
   <p>Signing in is optional and turns on sync between your devices. When you sign in, we store:</p>
@@ -115,16 +130,30 @@ if (location.protocol === 'file:') addEventListener('DOMContentLoaded', () => {
   <p>This data is used only to provide sync. It is not used for advertising, profiling or any other purpose, and it is not shared with anyone except the service providers below.</p>
   <p>We process this data because it is needed to provide the sync service you sign up for (performance of a contract). It is stored on servers in Mumbai, India. If you live in the European Economic Area or the UK, this means your data is transferred outside it, and Supabase protects such transfers with Standard Contractual Clauses.</p>
 
+  <h2 id="crash-reports">Crash reports</h2>
+  <p>When Weave runs into an error or crashes, it sends a crash report so we can find and fix the problem. A crash report contains:</p>
+  <ul>
+    <li>the type of error and where in Weave's code it happened,</li>
+    <li>the app version, your operating system and version, and your device model (for example "iPhone 15" or "Windows PC"),</li>
+    <li>which part of the app was involved (for example sync or reminders),</li>
+    <li>a random identifier created on your device, so we can tell how many devices an error affects. It is not linked to your account or email.</li>
+  </ul>
+  <p>Weave also sends timing information for a small share of sessions (for example how long the app takes to start), to find slow parts of the app.</p>
+  <p>Crash reports never include the text of your tasks or lists, your email address, your account, your device's name, screenshots or your IP address.</p>
+  <p>Crash reports are sent whether or not you have an account. You can turn them off at any time: Settings → Crash reports → Send crash reports. Reports already sent are kept for up to 30 days and then deleted.</p>
+  <p>We process crash reports because we have a legitimate interest in keeping Weave working and fixing errors; you can object at any time by turning them off.</p>
+
   <h2>Service providers</h2>
   <ul>
     <li><strong>Supabase</strong> hosts the account and sync service (database and authentication). It processes the data above on our behalf. See the <a href="https://supabase.com/privacy">Supabase privacy policy</a>.</li>
+    <li><strong>Sentry</strong> (Functional Software, Inc.) receives crash reports and stores them on our behalf in the United States. See the <a href="https://sentry.io/privacy/">Sentry privacy policy</a>. Sentry protects transfers from the EEA and UK with Standard Contractual Clauses.</li>
     <li><strong>App stores.</strong> When you download Weave, Apple, Google or Microsoft may collect data under their own privacy policies. We don't control that data.</li>
   </ul>
 
   <h2>What we don't collect</h2>
   <ul>
     <li>No analytics, usage tracking or advertising identifiers.</li>
-    <li>No crash reporting services.</li>
+    <li>No screenshots, screen recordings or text from your lists in crash reports.</li>
     <li>No location, contacts, photos, camera or microphone access.</li>
   </ul>
 
@@ -139,6 +168,7 @@ if (location.protocol === 'file:') addEventListener('DOMContentLoaded', () => {
     <li>Data that exists only on your device is removed when you uninstall the app.</li>
     <li>You can also email us to ask for a copy of your data or for its deletion.</li>
     <li>After deletion, copies may remain in our hosting provider's encrypted backups for up to 30 days, until those backups are overwritten. They are not used or restored in that time.</li>
+    <li>Crash reports are kept for up to 30 days. They aren't linked to your account, so deleting your account doesn't find them; they expire on their own.</li>
   </ul>
   <p><strong>Delete your account without the app:</strong> email <a href="mailto:mobiledev.mayank@gmail.com?subject=Delete%20my%20Weave%20account">mobiledev.mayank@gmail.com</a> from your account's email address with the subject "Delete my Weave account". We delete the account, its synced lists and tasks, and its device list within 30 days and confirm by email. Nothing else is kept, apart from the temporary backups described above and anything the law requires us to keep.</p>
 
@@ -155,7 +185,16 @@ if (location.protocol === 'file:') addEventListener('DOMContentLoaded', () => {
   <p>Mayank Mobile Dev<br>
   Email: <a href="mailto:mobiledev.mayank@gmail.com">mobiledev.mayank@gmail.com</a></p>
 
-  <footer class="muted">© 2026 Mayank Mobile Dev</footer>
 </main>
+<footer class="foot">
+  <div class="foot-in">
+    <ul>
+      <li><a href="../">Weave</a></li>
+      <li><a href="#delete-account">Delete your account</a></li>
+      <li><a href="mailto:mobiledev.mayank@gmail.com?subject=Weave%20support">Support</a></li>
+    </ul>
+    <span>© 2026 Mayank Mobile Dev</span>
+  </div>
+</footer>
 </body>
 </html>
