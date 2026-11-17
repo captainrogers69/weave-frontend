@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Weave Support</title>
+<meta name="description" content="Get help with Weave: contact, deleting your account, and where to get the app.">
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="preload" href="../fonts/Geist-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<style>
+  @font-face { font-family: "Geist"; src: url("../fonts/Geist-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+  @font-face { font-family: "Geist"; src: url("../fonts/Geist-Medium.ttf") format("truetype"); font-weight: 500; font-display: swap; }
+  :root {
+    --yellow: #F5C84C;
+    --ink: #141414;
+    --paper: #F1F1EF;
+    --white: #FFFFFF;
+    --soft: #55554F;
+    --line: #DCDAD3;
+    --m: clamp(16px, 3vw, 44px);
+  }
+  * { box-sizing: border-box; }
+  html { color-scheme: light; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 400 17px/1.6 "Geist", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--yellow); color: var(--ink); }
+  :focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; border-radius: 4px; }
+
+  .bar { display: flex; align-items: center; height: 64px; padding: 0 var(--m); background: var(--ink); color: var(--paper); }
+  .brand { display: flex; align-items: center; gap: 10px; color: inherit; text-decoration: none; font-weight: 500; font-size: 18px; letter-spacing: -.02em; margin-right: auto; }
+  .brand svg { width: 30px; height: 30px; flex: none; }
+  .bar .back { color: inherit; font-size: 15px; text-decoration: none; }
+  .bar .back:hover { text-decoration: underline; text-underline-offset: 4px; }
+  .bar :focus-visible { outline-color: var(--yellow); }
+
+  main { max-width: 720px; margin: 0 auto; padding: 56px 16px 96px; }
+  h1, h2 { font-weight: 500; letter-spacing: -.03em; }
+  h1 { font-size: clamp(36px, 7vw, 56px); line-height: 1.05; margin: 0 0 12px; }
+  h2 { font-size: 22px; line-height: 1.25; margin: 48px 0 8px; scroll-margin-top: 16px; }
+  ul { padding-left: 20px; }
+  li { margin: 4px 0; }
+  a { color: inherit; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+  a:hover { text-decoration-color: var(--yellow); }
+  .summary {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin: 32px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .summary::after { content: ""; position: absolute; top: 0; right: 0; width: 28px; height: 28px; background: var(--ink); border-bottom-left-radius: 28px; }
+  .summary p { margin: 0 0 8px; }
+  .summary p:last-child { margin: 0; }
+  .summary .label { font-weight: 500; }
+
+  .foot { background: var(--yellow); color: var(--ink); padding: 40px var(--m); }
+  .foot-in { max-width: 720px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; font-size: 15px; }
+  .foot ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 24px; font-weight: 500; }
+  .foot li { margin: 0; }
+</style>
+<script>
+/* Opened from disk (file://), folders don't open their index.html, so point folder links at it. No effect on the live site. */
+if (location.protocol === 'file:') addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('a[href]').forEach((a) => {
+    const h = a.getAttribute('href');
+    if (/^(https?:|mailto:|#)/.test(h)) return;
+    const [path, hash] = h.split('#');
+    if (path === '' || !path.endsWith('/')) return;
+    a.setAttribute('href', path + 'index.html' + (hash !== undefined ? '#' + hash : ''));
+  });
+});
+</script>
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="../">
+    <svg viewBox="0 0 256 256" aria-hidden="true"><rect width="256" height="256" rx="57" fill="#F5C84C"/><path d="M128 0H199A57 57 0 0 1 256 57V128A128 128 0 0 1 128 0Z" fill="#141414"/></svg>
+    Weave
+  </a>
+  <a class="back" href="../">Back to Weave</a>
+</header>
+<main>
+
+  <h1>Support</h1>
+
+  <div class="summary">
+    <p class="label">Need help?</p>
+    <p>Email <a href="mailto:mobiledev.mayank@gmail.com?subject=Weave%20support">mobiledev.mayank@gmail.com</a>. A real person reads every message.</p>
+  </div>
+
+  <h2 id="contact">Contact us</h2>
+  <p>Write to <a href="mailto:mobiledev.mayank@gmail.com?subject=Weave%20support">mobiledev.mayank@gmail.com</a> for questions, problems or ideas.</p>
+  <p>If something isn't working, it helps to tell us:</p>
+  <ul>
+    <li>your device (for example iPhone, Android phone, Mac or Windows PC),</li>
+    <li>what you did, what you expected, and what happened instead.</li>
+  </ul>
+  <p>Please don't send passwords or the text of private tasks. We never need them.</p>
+
+  <h2 id="delete-account">Delete your account</h2>
+  <ul>
+    <li><strong>In the app:</strong> Settings → Delete account. This removes your account, your synced lists and tasks, and your device list from our server.</li>
+    <li><strong>Without the app:</strong> email <a href="mailto:mobiledev.mayank@gmail.com?subject=Delete%20my%20Weave%20account">mobiledev.mayank@gmail.com</a> from your account's email address with the subject "Delete my Weave account". We delete it within 30 days and confirm by email.</li>
+  </ul>
+  <p>Full details: <a href="../privacy/#delete-account">Keeping and deleting your data</a> in the privacy policy.</p>
+
+  <h2 id="get-weave">Get Weave</h2>
+  <p>Weave is in beta.</p>
+  <ul>
+    <li><strong>iPhone and Mac:</strong> <a href="https://testflight.apple.com/join/XKDmnzjf" rel="noopener">join the TestFlight beta</a>.</li>
+    <li><strong>Android:</strong> <a href="https://play.google.com/store/apps/details?id=com.mobilemayank.weave" rel="noopener">get it on Google Play</a>.</li>
+    <li><strong>Windows:</strong> not ready yet. <a href="mailto:mobiledev.mayank@gmail.com?subject=Weave%20for%20Windows">Email us</a> and we'll tell you when it is.</li>
+  </ul>
+
+  <h2 id="crash-reports">Crash reports</h2>
+  <p>If the app runs into an error, it sends us a crash report so we can fix it. It never includes your tasks, lists or email. To turn it off: Settings → Crash reports → Send crash reports. More in the <a href="../privacy/#crash-reports">privacy policy</a>.</p>
+
+  <h2>Privacy</h2>
+  <p>No ads, no analytics, no tracking. Read the <a href="../privacy/">privacy policy</a>.</p>
+
+</main>
+<footer class="foot">
+  <div class="foot-in">
+    <ul>
+      <li><a href="../">Weave</a></li>
+      <li><a href="../privacy/">Privacy policy</a></li>
+      <li><a href="../privacy/#delete-account">Delete your account</a></li>
+    </ul>
+    <span>© 2026 Mayank Mobile Dev</span>
+  </div>
+</footer>
+</body>
+</html>

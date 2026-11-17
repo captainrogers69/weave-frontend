@@ -1,4 +1,11 @@
-# Static site, no build step: Netlify serves this folder as is.
-# /privacy and /privacy/ both serve privacy/index.html.
+# The Weave site moved to https://weave.mayank-mobiledev.in (2026-11-17).
+# Netlify only redirects now, kept up for good for old links (store listings, TestFlight notes, saved links).
+# Paths are kept (:splat); anchors like #delete-account survive (the browser keeps them).
 [build]
   publish = "."
+
+[[redirects]]
+  from = "/*"
+  to = "https://weave.mayank-mobiledev.in/:splat"
+  status = 301
+  force = true
